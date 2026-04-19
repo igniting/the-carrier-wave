@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Carrier Wave</title>
+    <meta name="description" content="A story about what happens when individuals move faster than the systems built to keep them aligned.">
+    <meta property="og:title" content="The Carrier Wave">
+    <meta property="og:description" content="A story about what happens when individuals move faster than the systems built to keep them aligned.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+            font-weight: 400;
+            font-optical-sizing: auto;
+            line-height: 1.75;
+            color: #1a1a1a;
+            background: #faf9f6;
+        }
+
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 6rem 1.5rem 8rem;
+        }
+
+        header {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            color: #111;
+        }
+
+        .subtitle {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        .separator {
+            text-align: center;
+            margin: 3rem 0;
+            color: #bbb;
+            letter-spacing: 0.5em;
+            font-size: 0.8rem;
+            user-select: none;
+        }
+
+        .knife {
+            text-align: center;
+            margin: 2.5rem 0;
+            font-style: italic;
+            color: #333;
+        }
+
+        blockquote {
+            font-style: italic;
+            color: #333;
+        }
+
+        .dialogue {
+            margin-bottom: 1.25rem;
+        }
+
+        strong {
+            font-weight: 500;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        .epigraph {
+            font-style: italic;
+            text-align: center;
+            color: #444;
+            margin-bottom: 1.25rem;
+            line-height: 1.8;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #999;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: #1a1a1a;
+            width: 0%;
+            z-index: 100;
+            transition: none;
+        }
+
+        .sticky-title {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 0.6rem 1.5rem;
+            background: rgba(250, 249, 246, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            z-index: 99;
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: opacity 0.3s, transform 0.3s;
+            text-align: center;
+        }
+
+        .sticky-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sticky-title span {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            html {
+                font-size: 17px;
+            }
+
+            .container {
+                padding: 3rem 1.25rem 5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            header {
+                margin-bottom: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progress"></div>
+    <div class="sticky-title" id="sticky-title"><span>The Carrier Wave</span></div>
+
+    <article class="container">
+        <header id="header">
+            <h1>The Carrier Wave</h1>
+            <p class="subtitle">A story about what happens when individuals move faster than the systems built to keep them aligned.</p>
+        </header>
+
+        <div class="section">
+            <p class="epigraph">For a decade, engineering teams relied on something they did not know they were relying on: the cost of building. It kept them slow enough to stay aligned. In early 2026, that cost disappeared.</p>
+        </div>
+
+        <div class="separator">&middot; &middot; &middot;</div>
+
+        <p class="section-title">The Feeling</p>
+
+        <div class="section">
+            <p>The feeling arrives before anything else does. It arrives in February, on a Tuesday afternoon, in the quiet minute after Kabir Joshi merges his own pull request.</p>
+
+            <p>He is twenty-two years old. Eight months into his first job. He has just shipped a feature that, three months ago, would have taken him three weeks. It took him three hours. The agent wrote most of the code. He wrote the prompt, read the diff, ran the eval, deployed to staging, watched it pass, merged. His tech lead is at a dentist&rsquo;s appointment. Nobody is going to review this before it reaches production. He stares at the green checkmark on the merge and waits for something to happen inside him that does not happen.</p>
+
+            <p>He has been told, in some form, every semester of college, that this is the feeling he was working toward. The feeling has not arrived.</p>
+
+            <p>He orders lunch at his desk. Dal and rice from the place on the corner. He eats it at his desk, looking at Slack, where nobody has said anything about his feature, because nobody knows it has shipped. He goes back to his backlog. He picks up the next ticket. The agent is ready.</p>
+        </div>
+
+        <div class="separator">&middot; &middot; &middot;</div>
+
+        <div class="section">
+            <p>I spent four months inside a company where this was happening. I am not naming it, not because the story is sensitive but because it is not particular. Every engineer I spoke to outside this company recognized it immediately. The details would be different. The shape would not.</p>
+
+            <p>This is how it begins &mdash; not with a crisis, not with a missed quarter, not with an incident. Just with a young engineer who has done good work and does not know why it feels like nothing. Multiply Kabir across the hundred and twenty engineers on the engineering floor. Multiply him across the industry. Nothing is broken. That is what makes it hard to see. The system still works. It just no longer aligns.</p>
+
+            <p>Something shifted at the turn of the year. Nobody is entirely sure what &mdash; some combination of model capability, agent harness, tooling around them, the particular month when the pieces finally fit. The teams noticed it first as a productivity surge. Individual engineers were producing at rates that would have seemed absurd in November.</p>
+
+            <p>And then the other thing started.</p>
+
+            <p>Two squads will discover, in the same week of March, that they have built solutions to the same problem. A principal engineer will ship a migration in three hours and feel less proud than when it used to take three weeks. A manager will no longer be able to tell, from what she sees on GitHub, who on her team is doing the most important work. A junior engineer, eight months in, will produce impressive pull requests and be unable to explain why the system is designed the way it is.</p>
+        </div>
+
+        <p class="knife">Velocity went up. Shared reality went down.</p>
+
+        <div class="separator">&middot; &middot; &middot;</div>
+
+        <p class="section-title">The Diagnosis</p>
+
+        <div class="section">
+            <p>Priya Ramanathan is thirty-one. Principal engineer. She spent her twenties at a well-known AI lab before joining this company two years ago. In her kitchen on a Saturday morning in early March, over filter coffee, she tells me a story about the year she was twenty-four.</p>
+
+            <p>She had spent two days debugging a memory leak with a senior engineer at the lab &mdash; two full days, pair-programming, hunched over one screen. The leak turned out to be in a library nobody at the company had written, and the fix, once they found it, was eleven lines. The two days were not about the eleven lines. The two days were when she learned how he thought. How he narrowed. What he reached for first. What he did when he was stuck. She can name, now, a dozen habits of mind she absorbed in those forty-eight hours that have shaped every system she has built since.</p>
+
+            <p class="dialogue">&ldquo;That couldn&rsquo;t happen now,&rdquo; she says.</p>
+
+            <p class="dialogue">&ldquo;Why not?&rdquo;</p>
+
+            <p class="dialogue">&ldquo;Because the leak would have been found in an hour. The fix would have been written by an agent. He would have reviewed the PR from his phone and stamped it. I would have shipped fine. And I would have learned nothing.&rdquo;</p>
+
+            <p>She is quiet for a moment. She refills her coffee. The filter drips slowly and neither of us says anything. When she picks the conversation back up, she does not pick it up where she left it.</p>
+
+            <p class="dialogue">&ldquo;I still talk to him,&rdquo; she says. &ldquo;He is at Google now. I do not think he knows what he taught me. I do not think he would describe those two days the way I just described them. He would say we fixed a memory leak.&rdquo;</p>
+
+            <p>She uses agents more aggressively than anyone else on her team. She is the reason her team uses them as aggressively as it does. But she is also the only person I have found in the building who can articulate what has been lost in the last few months, and she is trying, in a way she cannot quite name yet, to rebuild some part of it before it is gone for good.</p>
+
+            <p>Her diagnosis, when she finally offers it &mdash; much later, after she has told me two more stories I am not including here &mdash; is this: collaboration used to work because work was slow. Every ritual &mdash; the PR, the RFC, the design doc, the standup, the pair-debug &mdash; assumed a particular tempo. The tempo was never the point. The tempo was the carrier wave. The alignment rode on top of it.</p>
+
+            <p>The carrier wave is gone. Individuals with agents now move faster than the coordination mechanisms that used to hold teams together. The mechanisms have not been replaced. They have been hollowed out over a matter of weeks. The PR still exists; it is just no longer where decisions get made. The standup still happens; it is just that a day&rsquo;s work does not fit in a day anymore.</p>
+        </div>
+
+        <p class="knife">Code got cheaper. Alignment did not.</p>
+
+        <div class="section">
+            <p>Coordination was never designed. It was subsidized &mdash; by the slowness that has now been removed.</p>
+        </div>
+
+        <div class="separator">&middot; &middot; &middot;</div>
+
+        <p class="section-title">The Breakdown</p>
+
+        <div class="section">
+            <p>The two auth services are discovered on a Monday morning in March. A production incident exposes them &mdash; small, customer-invisible, but sharp enough that a postmortem is required. Two squads have, over the preceding six weeks, independently built authentication services that do nearly the same thing. Neither team knew the other&rsquo;s work existed. Both services pass their tests. Both were written mostly by agents, across perhaps forty hours of engineer time each.</p>
+
+            <p>Ananya Sengupta is the manager who has to write the postmortem. She is twenty-seven, six direct reports, three years into her first management role. I sit in her corner of the office on Tuesday evening while she writes it. She has a notebook open beside her laptop, and the notebook is more interesting than the screen &mdash; she has drawn a timeline of the six weeks, two parallel lines that never touch, annotated with the names of engineers who sat twelve feet apart the entire time.</p>
+
+            <p>She does not frame the incident as a communication failure. She writes it as an economic event.</p>
+
+            <p class="dialogue">&ldquo;Last year,&rdquo; she says, not looking up from the notebook, &ldquo;two engineers on different teams could each spend six weeks on the same problem and we would call it a disaster. Because six weeks is a quarter of somebody&rsquo;s year. Now they can each spend forty hours on the same problem and we do not even find out for six months.&rdquo; She taps the two parallel lines. &ldquo;The cost used to catch it. The cost <em>was</em> the coordination mechanism. We did not know that then.&rdquo;</p>
+
+            <p>She saves the draft. She does not send it yet. She stares at the parallel lines for a while.</p>
+
+            <p>What the two teams needed was thirty minutes of conversation before either of them started &mdash; thirty minutes that, in November, they would never have scheduled, because the RFC process was doing that work for them. Nobody writes an RFC for forty hours of work.</p>
+        </div>
+
+        <p class="knife">We removed the cost of building. We accidentally removed the cost of coordination.</p>
+
+        <div class="separator">&middot; &middot; &middot;</div>
+
+        <div class="section">
+            <p>Vikram Shetty, the CTO and co-founder, reads the postmortem on Wednesday morning. He is thirty-eight, built the company with two others four years ago. He draws a different conclusion. He sees a process failure that can be solved with a tool &mdash; a cross-team search, a duplication-detector, something.</p>
+
+            <p>Ananya sees a tempo failure that cannot be solved with any tool because the tool is downstream of the mechanism that is missing.</p>
+
+            <p>The Slack thread between them runs for most of Wednesday. It is long, and polite. Ananya sends me screenshots of it later, and the thing that strikes me is how carefully they are talking past each other. Vikram keeps proposing solutions. Ananya keeps describing the problem. They are both precise. They are not having the same conversation, and they do not realize it until much later, if they ever do.</p>
+        </div>
+
+        <div class="separator">&middot; &middot; &middot;</div>
+
+        <div class="section">
+            <p>Rohan Mehta has been a staff engineer for four years. He has a standing desk in the corner of the third floor, near the window, and an unusual number of browser tabs open at all times. He is the person on the team the juniors go to when they are stuck &mdash; or he was, until recently.</p>
+
+            <p>A PR with four thousand lines of diff lands in his review queue on a Thursday in late March. He stamps it in nine minutes. He tells me the next week that he stopped reading at line two hundred. He is not proud of this. He is also not going to do it differently tomorrow. The volume queued up behind that PR is larger than his working week. If he read every diff at the depth he used to, he would review three of the week&rsquo;s forty.</p>
+
+            <p>This is not a review failure. It is a volume failure. Rohan has not become a worse reviewer. The ratio has changed underneath him.</p>
+
+            <p>The PR ships on Friday. Two weeks later, a bug is traced back to a decision inside it that the agent explained, at the time, in a chat conversation with its author. The author cannot find the conversation. He has had seventy conversations with agents in the two weeks between. He is not sure which of the seventy it was in. The reasoning is gone. Not deleted &mdash; just buried in a place nobody will look.</p>
+
+            <p>I sit with Rohan the following week, after the bug has been traced and fixed. He is eating lunch at his desk &mdash; a habit, I have noticed, that nearly every engineer in this building shares, and that none of them seem to enjoy.</p>
+
+            <p class="dialogue">&ldquo;I used to teach through review,&rdquo; he says. &ldquo;Not on purpose. It just happened. You read someone&rsquo;s code slowly, and you see the place where they almost got it right, and you leave a comment, and they come back with a question, and by the end of the thread you have both understood something you did not understand before.&rdquo;</p>
+
+            <p>He looks at his review queue. It has eleven items in it.</p>
+
+            <p class="dialogue">&ldquo;I can&rsquo;t teach anyone anymore,&rdquo; he says. &ldquo;I can approve. I can&rsquo;t teach.&rdquo;</p>
+
+            <p>I ask him if the juniors notice.</p>
+
+            <p class="dialogue">&ldquo;They don&rsquo;t know what they&rsquo;re not getting,&rdquo; he says. &ldquo;That is the thing about this. The absence is invisible to the person who would have benefited from the thing that is absent.&rdquo;</p>
+        </div>
+
+        <div class="separator">&middot; &middot; &middot;</div>
+
+        <div class="section">
+            <p>Ananya has been going to the same caf&eacute; every Sunday afternoon for eleven weeks, since the first week of January, when she began to feel she could no longer answer basic questions about what her team was doing.</p>
+
+            <p>She is working on a document nobody asked her to write. It is, when I first see it in late March, forty-three pages long. She shows it to me with a kind of embarrassed pride, the way you show someone a project you have been working on alone for too long. It is a careful, stubborn description of what her team is actually doing, week by week. Not what they are reporting. What they are doing.</p>
+
+            <p>She has written it because her 1:1s have stopped telling her what she needs to know. The engineers come in, report status, leave. What they say is true. It is not what she needs. What she needs is what they were <em>deciding</em>, and the decisions have moved into places she cannot see &mdash; chat histories with agents, PRs that shipped before she heard about them, conversations in channels she is not in because nobody remembered to add her.</p>
+
+            <p class="dialogue">&ldquo;I can tell you what shipped,&rdquo; she says. &ldquo;I cannot tell you why it was built that way. I used to be able to tell you that.&rdquo;</p>
+
+            <p>She can no longer evaluate, from GitHub, who on her team is doing the most important work. The engineer who spent a day curating context, writing evals, and shepherding an agent through a gnarly problem looks indistinguishable from the engineer who vibe-coded a throwaway. Both have a PR merged. Both say the right things at standup. One of them is doing the work that will determine whether her team is still here in two years. She cannot, on most days, tell which one.</p>
+
+            <p>She shows the document to Priya in the first week of April. Priya reads it overnight. She texts Ananya at six in the morning: <em>Can we talk before standup?</em></p>
+        </div>
+
+        <div class="separator">&middot; &middot; &middot;</div>
+
+        <p class="section-title">The Gap</p>
+
+        <div class="section">
+            <p>And then there is Kabir.</p>
+
+            <p>Kabir ships his feature on a Tuesday in February, feels the hollow where the pride used to be, and carries the feeling for weeks without being able to name it. He does not bring it up in his 1:1s. He does not mention it to his college WhatsApp group, which is where he is most honest and also least honest, because everyone in the group is having the same experience and none of them are discussing it. They post screenshots of things they have shipped. The screenshots have become more impressive and the feeling behind them has become thinner and nobody talks about the gap.</p>
+
+            <p>In March, Kabir&rsquo;s days take on a particular rhythm. He arrives, opens his laptop, picks a ticket, talks to the agent, reviews what the agent produces, ships it, picks another ticket. Some days he ships three things. He is, by any measure the company tracks, having the best quarter of his short career. His manager tells him this in a 1:1, and he says thank you, and means it, and feels nothing.</p>
+
+            <p>He starts leaving the office earlier than he used to. Not because the work is done &mdash; the backlog is bottomless &mdash; but because by four in the afternoon he has run out of whatever it is that makes him want to be here. He takes the bus home and reads on his phone and does not think about what he shipped. He could not, if you asked him on the bus, reconstruct the reasoning behind the second PR of the day. He merged it four hours ago.</p>
+
+            <p>The specific thing Kabir is feeling is what Priya will later have a name for. <em>I didn&rsquo;t really write this &mdash; the agent did.</em> The engineer who shipped a feature in three hours feels less pride than when they shipped it in three weeks, even if the outcome is better. Craft identity was built on struggle, and removing the struggle removes the identity marker. You cannot argue an engineer out of this feeling. It is a legitimate response to a real change.</p>
+
+            <p>But that shift is weeks away for Kabir. In February and March he only knows that the thing he came here to do does not feel like the thing he is doing.</p>
+        </div>
+
+        <div class="separator">&middot; &middot; &middot;</div>
+
+        <p class="section-title">The Three Shifts</p>
+
+        <div class="section">
+            <p>What replaces the old rituals is not another ritual. It is a different architecture of how teams work. Priya has been describing this to me for weeks before she says it cleanly, on a walk one evening in early April, after a long day. We are on the street outside the office, in the noise of evening traffic, and she has been quiet for two blocks.</p>
+
+            <p>Three shifts follow from the death of the carrier wave, she says.</p>
+
+            <p>The first: <strong>Intent over Implementation.</strong> Pre-agents, you aligned on code because code was expensive. Now, code is cheap and plans are expensive. The coordination artifact shifts from the PR to the decision about what to build. That alignment has to happen <em>before</em> the code, not after, because after is too late &mdash; the code already exists.</p>
+
+            <p>The second: <strong>Contracts over Context.</strong> When humans cannot keep each other in context fast enough, machine-readable interfaces have to carry the coordination weight. Typed APIs, capability declarations, schema registries, compatibility checks in CI. The contract <em>is</em> the coordination. Agents on both sides respect it, and humans inherit the discipline.</p>
+
+            <p>The third: <strong>Curation over Review.</strong> EMs and TLs stop being the PR bottleneck and start owning the shared substrate &mdash; surfacing conflicts before they happen, curating team-level context, deciding what <em>does not</em> get built. The manager&rsquo;s value is no longer in reading every diff. It is in making sure the team is building the right things and knows what each other is building.</p>
+
+            <p>She says all three in one breath, past the evening traffic, without making them sound like a framework. I write them down on my phone while she walks ahead. When I catch up she is talking about something else.</p>
+        </div>
+
+        <div class="separator">&middot; &middot; &middot;</div>
+
+        <p class="section-title">The Rebuild</p>
+
+        <div class="section">
+            <p>Ananya begins in the second week of April. She does not announce what she is doing. She does not propose a process overhaul. She starts with one thing.</p>
+
+            <p>The first thing she builds is what she calls a team capability manifest. One page per team, machine-readable, checked into the repo. What the team owns. What it exposes. What it depends on. Breaking changes surface in CI rather than in a postmortem. It takes four engineers eleven days to produce the first version. Three of those days are spent arguing about what the team actually owns, because nobody has ever written it down. Half the engineers forget to update it for the first two weeks.</p>
+
+            <p>The second thing, which grows out of the first, is a set of team-level context files &mdash; an <code style="font-family: 'Newsreader', serif; background: rgba(0,0,0,0.04); padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.95em;">AGENTS.md</code> pattern, at the organization level, the team level, and the session level. Every engineer&rsquo;s agent reads the team&rsquo;s context before acting. It is also the artifact that finally makes Ananya&rsquo;s own job legible again &mdash; an engineer who contributes to the context file is visibly contributing to the team in a way GitHub does not measure.</p>
+
+            <p>The third is an intent forum. Fifteen minutes, once a week, every team declares what it is <em>starting</em> that week, not what it finished. The first time it runs, nobody takes it seriously. Two engineers phone it in with vague one-liners. The second time, it prevents a duplicated week of work. After that, attendance is no longer a problem.</p>
+
+            <p>The fourth is decision records as agent output. Any change touching a shared contract requires a one-page rationale. The agent produces the first draft as part of the work &mdash; not after. The engineer reviews and signs it. Most of the records are short. All of them are findable. Some of them are bad &mdash; pro-forma, rubber-stamped, the engineer clearly not reading what the agent wrote. But even the bad ones leave a trail that the old process did not.</p>
+
+            <p>And two more: shared eval harnesses, so any team&rsquo;s change runs against the full suite and cross-team regressions get caught before production; and a weekly conflict review &mdash; managers only, no status, conflicts only.</p>
+
+            <p>The manifests worked. The evals worked. The intent forum worked. The one thing that still did not work was deciding what <em>not</em> to build. The mechanisms could surface conflicts and prevent duplication &mdash; but the question of which work mattered most, which bets to kill early, which agents to point at which problems &mdash; that had just moved up a level. Ananya could see it clearly. She did not yet have a mechanism for it.</p>
+
+            <p>The thing Ananya cannot build with infrastructure is the mentorship loop. That one has to be rebuilt explicitly and with humans in the room. She and Priya pair once a week now. Priya and Kabir pair for two hours every morning. The pairings are not mentorship in the old sense. They are something new, with agents in the loop, where the senior engineer is teaching not how to write code but how to hold a problem, and the junior engineer is teaching the senior what the new tools make possible.</p>
+
+            <p>The first time Kabir and Priya pair, she asks him to walk her through a PR he shipped the previous week. He cannot. Not because the code is bad &mdash; it is fine &mdash; but because the decisions that shaped it were made in a conversation with an agent that he cannot reconstruct. She does not tell him this is a problem. She asks him to pair with her on the next one, live, with the agent in the room and both of them watching. By the third session, Kabir is narrating his reasoning out loud as he works. He tells me later that this felt strange at first, like talking to himself. Then it felt like the most natural thing in the world.</p>
+        </div>
+
+        <div class="separator">&middot; &middot; &middot;</div>
+
+        <p class="section-title">The Harder Part</p>
+
+        <div class="section">
+            <p>And then there is the part of this that is not solvable with infrastructure at all.</p>
+
+            <p>Priya says it to me one evening in mid-April, on the same walk where she first articulated the three shifts. We are at the same stretch of street. The traffic is lighter this time.</p>
+
+            <p class="dialogue">&ldquo;The mechanics are the easy part,&rdquo; she says. &ldquo;The motivation is not. If that part is not addressed honestly, the best engineers quietly disengage and the whole effort fails in a way that looks like adoption issues but is actually a values mismatch.&rdquo;</p>
+
+            <p>She has been thinking about this as three separate feelings that leaders often conflate.</p>
+
+            <p>The first is what she calls dilution of ownership. <em>I didn&rsquo;t really write this &mdash; the agent did.</em> You cannot argue engineers out of it. You have to shift what ownership means. Ownership is not &ldquo;I typed these characters.&rdquo; It is &ldquo;I am accountable for this outcome, I understand this system deeply enough to debug it at 2 a.m., and I made the judgment calls that shaped it.&rdquo; When someone demos work, Priya has started asking about the decisions they made and the things the agent got wrong that they caught. That is the craft now.</p>
+
+            <p>The second is legibility of contribution. Two engineers ship the same feature. One took thirty prompts and three failed evals to get there. The other got lucky on the first try. GitHub cannot tell the difference. Decision records, eval contributions, context contributions &mdash; these make the difference visible. If the performance rubric still rewards &ldquo;ships features&rdquo; without distinguishing between &ldquo;ships features on a well-lit path&rdquo; and &ldquo;built the well-lit path others ship on,&rdquo; you systematically demotivate the engineers you most need.</p>
+
+            <p>The third is unequal payoff. The engineers who invest in the shared substrate &mdash; the context files, the capability manifests, the eval harnesses &mdash; do the highest-leverage work on the team. If they are rewarded the same as the feature-crankers, rational engineers stop doing it after one cycle. When someone&rsquo;s work prevents three teams from hitting the same bug, Priya has started saying so, out loud, in the all-hands. The first time she did it, the engineer she named &mdash; a quiet backend developer who had written most of the eval harness over two weekends &mdash; did not know she had noticed. He told me afterwards that the moment changed something for him. He had been thinking about leaving.</p>
+        </div>
+
+        <div class="separator">&middot; &middot; &middot;</div>
+
+        <div class="section">
+            <p>There is a deeper thing underneath the three feelings, and Priya says it to me only once, after I have turned the recorder off. We are sitting on a bench outside the office. It is late. She is tired.</p>
+
+            <p>Some engineers here are not worried about recognition, she says. They are worried that the job they loved is going away. The person who became an engineer because they loved writing code is watching the writing-code part get automated. This is not paranoid. It is accurate. And it has happened in the span of a single quarter.</p>
+
+            <p>The honest response is not &ldquo;don&rsquo;t worry, your job is safe.&rdquo; It is: &ldquo;the job is changing, here is what the new version looks like, and here is why it is still worth doing.&rdquo; Taste, judgment, system design, debugging under uncertainty, deciding what <em>not</em> to build &mdash; these are more important now, not less. But you have to say it out loud, repeatedly, and show it in how you reward people. Otherwise the defaults fill in the vacuum.</p>
+
+            <p>She is quiet for a while.</p>
+
+            <p class="dialogue">&ldquo;Culture gets set from the top,&rdquo; she says. &ldquo;And the window to set it is narrow. Roughly the next two review cycles. After that, the norms calcify around whoever got rewarded in the meantime.&rdquo;</p>
+        </div>
+
+        <div class="separator">&middot; &middot; &middot;</div>
+
+        <div class="section">
+            <p>Vikram, when Priya brings this to him in mid-April, is not unsympathetic. He is also running a company. He has a release to ship by end of month. A competitor shipped something similar three weeks ago and the board has asked him twice about the timeline. He left a company he loved to start this one. He has not taken a vacation in fourteen months. The thing Priya is asking him to prioritize is real, and he knows it, and it is not the thing that will kill the company this quarter.</p>
+
+            <p>If the release slips, none of this matters. If the culture slips, everything does. He is choosing the one he can measure. He will be rewarded for the release. He will not be punished for the culture.</p>
+
+            <p>He commits to changing the performance review rubric before the mid-year cycle. The calendar keeps arriving. The review cycle will come whether or not the rubric has changed. And the defaults do not wait.</p>
+        </div>
+
+        <div class="separator">&middot; &middot; &middot;</div>
+
+        <p class="section-title">Late April</p>
+
+        <div class="section">
+            <p>I am writing this in late April. The story is not finished. It cannot be, because the thing that produced it is four months old.</p>
+
+            <p>Ananya&rsquo;s document is no longer a document. It is becoming a set of templates, checked in, which parts of the team have started to use without knowing she wrote them. Priya is running a weekly session with Kabir and two other engineers, teaching something she has started calling <em>decision craft</em>. Kabir, at eight months in, can answer questions about the authentication service that he could not have answered in February. The questions he can answer have nothing to do with authentication.</p>
+        </div>
+
+        <div class="separator">&middot; &middot; &middot;</div>
+
+        <div class="section">
+            <p>Kabir, the last time we spoke, told me something I want to end on. He said that the hollow feeling he had in February is mostly gone. I asked him what replaced it. He thought about it for a long time.</p>
+
+            <p class="dialogue">&ldquo;I know what I decided this week,&rdquo; he said. &ldquo;I know why. If someone asked me tomorrow what I built, I could tell them, and I could also tell them the three things the agent wanted to build that I refused, and why. That is not the same as the feeling I thought I was coming here for. But it is a feeling. And I think it is the one that is going to last.&rdquo;</p>
+
+            <p>He looked at his screen, which had a green checkmark on it. He did not stare at the checkmark. He closed the laptop, and went home.</p>
+
+            <p>The carrier wave did not come back. They built something else on top of the silence.</p>
+        </div>
+    </article>
+
+    <script>
+        const progress = document.getElementById('progress');
+        const stickyTitle = document.getElementById('sticky-title');
+        const header = document.getElementById('header');
+
+        function onScroll() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = Math.min((scrollTop / docHeight) * 100, 100);
+            progress.style.width = pct + '%';
+
+            const headerBottom = header.getBoundingClientRect().bottom;
+            if (headerBottom < 0) {
+                stickyTitle.classList.add('visible');
+            } else {
+                stickyTitle.classList.remove('visible');
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    </script>
+</body>
+</html>
